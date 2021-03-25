@@ -1,0 +1,26 @@
+name: Ubuntu
+on:
+  push:
+    branches:
+      - '**'
+    tags:
+      - '**'
+  pull_request:
+    branches:
+      - master
+
+env:
+  SCHEME: scheme
+  IDRIS2_TESTS_CG: chez
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: snazzybucket/idris2:latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: idris build and test
+        run: |
+          make clean && make build && make install && make test INTERACTIVE=''
+        shell: bash
