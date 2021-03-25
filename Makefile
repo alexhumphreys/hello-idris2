@@ -19,6 +19,13 @@ clean:
 build:
 	idris2 --build helloidris2.ipkg
 
+build-executable:
+	idris2 ./HelloIdris2/Main.idr -o helloIdris2 # this is the name of the executable
+	# it will be created in ./build/exec/
+
+run-executable: build-executable
+	./build/exec/helloIdris2
+
 install:
 	idris2 --install helloidris2.ipkg
 
