@@ -40,3 +40,9 @@ test: build install testbin test-only
 
 time-time:
 	time ${MAKE} test INTERACTIVE=''
+
+docker-build:
+	docker build . -t snazzybucket/hello-idris2
+
+docker-run:
+	docker run snazzybucket/hello-idris2

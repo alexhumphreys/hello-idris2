@@ -24,3 +24,17 @@ jobs:
         run: |
           make clean && make build && make install && make test INTERACTIVE=''
         shell: bash
+  build-docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: build docker image
+        run: |
+          make clean
+          make docker-build
+        shell: bash
+      - name: test docker image
+        run: |
+          make docker-run
+        shell: bash
