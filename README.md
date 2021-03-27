@@ -1,3 +1,5 @@
+[![ci](https://github.com/alexhumphreys/hello-idris2/actions/workflows/ci.yml/badge.svg)](https://github.com/alexhumphreys/hello-idris2/actions/workflows/ci.yml)
+
 # Hello Idris2
 
 This is a template of an idris2 project. It has some simple modules setup, golden tests created, and a github action to run them.
