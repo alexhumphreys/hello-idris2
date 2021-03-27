@@ -15,3 +15,11 @@ depends = base
 modules =
     HelloIdris2.Main,
     HelloIdris2.Greet
+
+-- `main`
+-- the entrypoint for the main function for the executable
+main = HelloIdris2.Main
+
+-- `executable`
+-- the name of the executable in the `./build/exec/` dir
+executable = helloIdris2
