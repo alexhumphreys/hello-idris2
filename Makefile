@@ -19,7 +19,7 @@ clean:
 build:
 	idris2 --build helloidris2.ipkg
 
-build-executable:
+build-executable: build # Has a dependency on build, not sure why
 	idris2 ./HelloIdris2/Main.idr -o helloIdris2 # this is the name of the executable
 	# it will be created in ./build/exec/
 
