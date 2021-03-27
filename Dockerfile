@@ -12,7 +12,7 @@ RUN ls -R build
 
 FROM ubuntu:20.04
 
-RUN apt-get update && apt-get install --yes gcc make chezscheme && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install --yes chezscheme && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /opt/hello-idris2/exec
 
