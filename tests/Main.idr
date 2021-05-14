@@ -5,7 +5,7 @@ import Test.Golden
 %default covering
 
 allTests : TestPool
-allTests = MkTestPool []
+allTests = MkTestPool "Name of the pool" []
   [ "test001"
   , "test002" -- To add more tests, copy one of the test directories, then update this list
   ]
