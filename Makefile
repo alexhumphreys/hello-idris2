@@ -37,7 +37,12 @@ testbin:
 test-only:
 	${MAKE} -C tests only=$(only)
 
+# only run the tests that fail during the last run
+retest-only:
+	${MAKE} -C tests retest
+
 test: build install testbin test-only
+retest: build install testbin retest-only
 
 time-time:
 	time ${MAKE} test INTERACTIVE=''

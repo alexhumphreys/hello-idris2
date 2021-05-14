@@ -1,3 +1,3 @@
-idris2 --no-banner --no-color --console-width 0 -p helloidris2 Greet.idr --client ":exec main"
+$1 --no-banner --no-color --console-width 0 -p helloidris2 Greet.idr --client ":exec main"
 
 rm -rf build
