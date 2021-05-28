@@ -1,6 +1,0 @@
-package runtests
-
-depends = contrib, test, helloidris2 -- make sure to depend on your own project
-main = Main
-
-executable = runtests -- the name of the executable that is created in `./build/exec`
