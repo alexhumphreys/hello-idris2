@@ -47,6 +47,9 @@ retest: build install testbin retest-only
 time-time:
 	time ${MAKE} test INTERACTIVE=''
 
+docs:
+	idris2 --mkdoc helloidris2.ipkg
+
 docker-build:
 	docker build . -t snazzybucket/hello-idris2
 

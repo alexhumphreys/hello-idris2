@@ -38,3 +38,36 @@ jobs:
         run: |
           make docker-run
         shell: bash
+  generate-docs:
+    needs: [build, build-docker]
+    runs-on: ubuntu-latest
+    container: snazzybucket/idris2:latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: generate docs
+        run: |
+          make docs
+        shell: bash
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: docs
+          path: build/docs
+  deploy-docs:
+    needs: [generate-docs]
+    if: ${{ github.ref == 'refs/heads/master' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.1
+      - name: Download Artifacts
+        uses: actions/download-artifact@v1
+        with:
+          name: docs
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: 'docs'
